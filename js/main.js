@@ -94,10 +94,10 @@ function translit(event) {
     const target = event.target.id + '_en'
 
     if (event.inputType === 'insertText') {
-        form[target].value += (transl[event.data] !== undefined) ? transl[event.data] : '';
-        lastSym = (transl[event.data] !== undefined) ? event.data : '';
+        form[target].value += (transl[event.data] !== undefined) ? transl[event.data] : event.data;
+        lastSym = event.data;
     } else if (event.inputType === 'deleteContentBackward') {
-        form[target].value = form[target].value.slice(0, -transl[lastSym].length);
+        form[target].value = (transl[lastSym]) ? form[target].value.slice(0, -transl[lastSym].length) : form[target].value.slice(0, -1);
         lastSym = event.target.value[event.target.value.length - 1];
     }
 }
@@ -128,23 +128,24 @@ initMaritalSelect(form.gender.value);
 form.birth_day.addEventListener('change', (event) => {
     event.target.parentElement.parentElement.classList.toggle('warning', ageCheck());
     form.bdvalidation.value = new Date(new Date() - getDate()).getFullYear();
+    sendButton.disabled = !form.checkValidity();
 });
 form.birth_month.addEventListener('change', (event) => {
     initDateSelect(parseInt(form.birth_year.value), parseInt(form.birth_month.value));
     event.target.parentElement.parentElement.classList.toggle('warning', ageCheck());
     form.bdvalidation.value = new Date(new Date() - getDate()).getFullYear();
+    sendButton.disabled = !form.checkValidity();
 });
 form.birth_year.addEventListener('change', (event) => {
     initDateSelect(parseInt(form.birth_year.value), parseInt(form.birth_month.value));
     event.target.parentElement.parentElement.classList.toggle('warning', ageCheck());
     form.bdvalidation.value = new Date(new Date() - getDate()).getFullYear();
+    sendButton.disabled = !form.checkValidity();
 });
 
 form.birth_day.value = new Date().getDate();
 
 form.bdvalidation.value = new Date(new Date() - getDate()).getFullYear();
-
-console.log(new Date() - getDate());
 
 form.lastname.addEventListener('input', translit);
 form.firstname.addEventListener('input', translit);

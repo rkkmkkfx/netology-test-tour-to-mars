@@ -191,6 +191,10 @@ form {
     border-left-width: 1px;
 }
 
+input[type="checkbox"] {
+    min-width: auto;
+}
+
 input[type="radio"] + label {
     border: 1px solid #9e9e9e;
     background-color: buttonface;
