@@ -11,6 +11,8 @@ const genderBtns = document.querySelectorAll('input[name="gender"]');
 
 const sendButton = document.querySelector('button.big');
 
+const scriptURL = 'https://script.google.com/macros/u/0/s/AKfycbwOOFKwFMoiNHu-jQAiH1PPg4ZiDLvEBwJMb1mjX5M0cm2s4Jw/exec';
+
 let lastSym; //хранит последний введенный символ в полях "Фамилия" и "Имя"
 
 const maritalStatus = {
@@ -157,3 +159,11 @@ for (let input of form.elements) {
 }
 
 form.accept.addEventListener('change', () => sendButton.disabled = !form.checkValidity());
+
+form.addEventListener('submit', event => {
+    event.preventDefault();
+
+    fetch(scriptURL, {method: 'POST', body: new FormData(document.form['form'])})
+        .then(res => console.log(res))
+        .catch(err => console.log(err));
+})
