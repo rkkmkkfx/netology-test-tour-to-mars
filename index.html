@@ -1,0 +1,157 @@
+<!doctype html>
+<html class="no-js" lang="ru">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="manifest" href="site.webmanifest">
+        <link rel="apple-touch-icon" href="icon.png">
+        <!-- Place favicon.ico in the root directory -->
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <!--[if lte IE 9]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+        <![endif]-->
+
+        <!-- Add your site or application content here -->
+        
+        <section>
+            <h1>Заявка на экскурсионный полёт на Марс</h1>
+            <div class="row">
+                <main class="gutter">
+                    <form action="" id="form">
+                        <div class="form-body">
+                            <div class="input-group">
+                                <div class="title">
+                                    <label for="lastname">Фамилия</label>
+                                </div>
+                                <div class="control">
+                                    <input id="lastname" type="text" name="lastname" required>
+                                    <input id="lastnameHasChanged" type="checkbox">
+                                    <label for="lastnameHasChanged">ранее менялась</label>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="title">
+                                    <label for="firstname">Имя</label>
+                                </div>
+                                <div class="control">
+                                    <input id="firstname" type="text" name="firstname" required>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="title">
+                                    <label for="middlename">Отчество</label>
+                                </div>
+                                <div class="control">
+                                    <input id="middlename" type="text" name="middlename">
+                                    <div class="message">Если вы не хотите лететь в багажном отсеке, пожалуйста, укажите ваше отчество.</div>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="title">
+                                    <label for="lastname_en">Фамилия латиницей</label>
+                                </div>
+                                <div class="control">
+                                    <input id="lastname_en" type="text" name="lastname_en">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="title">
+                                    <label for="firstname_en">Имя латиницей</label>
+                                </div>
+                                <div class="control">
+                                    <input id="firstname_en" type="text" name="firstname_en">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="title">
+                                    Дата рождения
+                                </div>
+                                <div class="control birthday">
+                                    <div class="bday-line">
+                                        <select id="birth_day" name="birth_day"></select>
+                                        <select id="birth_month" name="birth_month"></select>
+                                        <select id="birth_year" name="birth_year"></select>
+                                    </div>
+                                    <input id="bdvalidation" type="number" name="bdvalidation" max="1969" hidden>
+                                    <div class="message yellow">Какой-то текст про то, почему нельзя лететь тем? кому за 90.</div>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="title">Пол</div>
+                                <div class="control">
+                                    <input id="male" type="radio" name="gender" value="male" hidden checked><label for="male">мужской</label>
+                                    <input id="female" type="radio" name="gender" value="female" hidden><label for="female">женский</label>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="title">Семейное положение</div>
+                                <div class="control">
+                                    <select id="marital_status" name="marital_status"></select>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="title">Образование</div>
+                                <div class="control">
+                                    <select id="education" name="education">
+                                        <option value="высшее">высшее</option>
+                                        <option value="среднее специальное">среднее специальное</option>
+                                        <option value="среднее">среднее</option>
+                                        <option value="студент">студент</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <h2 class="center">Контактная информация</h2>
+                            <div class="input-group">
+                                <div class="title">
+                                    <label for="lastname_en">Моб. телефон</label>
+                                </div>
+                                <div class="control">
+                                    <input id="phone" type="tel" name="phone" required placeholder="+7">
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <div class="title">
+                                    <label for="lastname_en">Электронная почта</label>
+                                </div>
+                                <div class="control">
+                                    <input id="email" type="email" name="email" pattern="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-footer">
+                            <div class="input-group">
+                                <div class="title"></div>
+                                <div class="control">
+                                    <input id="accept" type="checkbox" name="accept" required>
+                                    <label for="accept">Ставя эту галочку, я подтверждаю, что поставил её в трезвом уме и твердой памяти.</label>
+                                    <button type="submit" class="big" disabled>
+                                        Полететь на Марс
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </main>
+                <aside class="gutter">
+                    <h3>Почему стабильно солнечное затмение?</h3>
+                    <p>Эффективный диаметр жизненно вызывает случайный эффективный радиус, а время ожидания ответа
+                        составило бы 80 миллиардов лет.</p>
+                </aside>
+            </div>
+        </section>
+        
+        <script src="js/vendor/modernizr-3.5.0.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.2.1.min.js"><\/script>')</script>
+        <script src="js/plugins.js"></script>
+        <script src="js/main.js"></script>
+    </body>
+</html>
