@@ -163,7 +163,7 @@ form.accept.addEventListener('change', () => sendButton.disabled = !form.checkVa
 form.addEventListener('submit', event => {
     event.preventDefault();
 
-    fetch(scriptURL, {method: 'GET', data: form.elements.serializeArray()})
+    fetch(scriptURL, {method: 'GET', data: new FormData(document.forms['form'])})
         .then(res => console.log(res))
         .catch(err => console.log(err));
 })
