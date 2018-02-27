@@ -163,7 +163,9 @@ form.accept.addEventListener('change', () => sendButton.disabled = !form.checkVa
 form.addEventListener('submit', event => {
     event.preventDefault();
 
-    fetch(scriptURL, {method: 'POST', body: new FormData(document.form['form'])})
+    fetch(scriptURL, {method: 'POST', body: new FormData(document.forms['form'])})
         .then(res => console.log(res))
         .catch(err => console.log(err));
 })
+
+const mask = new IMask(form.phone, {mask: '+{7}(000)000-00-00'});
